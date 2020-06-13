@@ -1,8 +1,23 @@
 import org.junit.Test;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static org.junit.Assert.assertTrue;
 
 public class MainClassTest {
 
     MainClass mainClass = new MainClass();
+
+    @Test
+    public void testGetClassString() {
+        boolean testResult = false;
+        String testString = mainClass.getClassString();
+
+        testResult = ((testString.indexOf("Hello") != -1) || (testString.indexOf("hello") != -1)) ?
+                true : false;
+
+        printTestResult(testResult, "Substring 'Hello' or 'hello' not found.");
+    }
 
     @Test
     public void testGetClassNumber() {
